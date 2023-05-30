@@ -1,0 +1,35 @@
+.footer {
+    padding: var(--padding-mobile);
+    background-color: rgb(14, 20, 22);
+    color: white;
+    margin-top: 100px;
+  }
+  .footer__text {
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .redes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.2rem;
+    padding-bottom: 20px;
+  }
+  .redes__items {
+    width: 35px;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @media screen and (min-width: 720px) {
+    .footer {
+      padding: var(--padding-tablet);
+    }
+    .footer__text{
+      margin-bottom: 30px;
+    }
+  }
