@@ -29,3 +29,31 @@
     text-align: center;
     color: #EE8178;
 }
+
+.container_valores {
+    margin-left: 100px;
+    font-size: 30px;
+
+}
+
+.container_valores p {
+    margin-right: 100px;
+
+}
+.container_valores_check {
+    display: flex;
+    margin: 50px 100px;
+}
+.container_valores_check i{
+    font-size: 50px;
+    color: #EE8178;
+}
+.container_valores_check p{
+    margin-right: 20%;
+}
+@media screen and (min-width: 759px) {
+    .container_valores p {
+        margin-right: 50%;
+
+    }
+}

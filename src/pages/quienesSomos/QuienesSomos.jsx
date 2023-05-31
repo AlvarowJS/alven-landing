@@ -1,6 +1,7 @@
 import React from 'react'
 import portada1 from './../../assets/img/portada1.png'
 import portada2 from './../../assets/img/portada2.png'
+import portada3 from './../../assets/img/portada3.png'
 import './style.css'
 const QuienesSomos = () => {
   return (
@@ -22,9 +23,7 @@ const QuienesSomos = () => {
           <br />
           Nuestro compromiso es con la calidad del servicio y la finalidad es tener clientes de por vida, en ningún momento extensión y amplitud significa menor calidad, por el contrario, nuestro compromiso es con la calidad del servicio.
           <br />
-          <button className='button_home'>
-            Ver mas
-          </button>
+          <br /><br />
         </div>
       </aside>
       <aside>
@@ -39,12 +38,11 @@ const QuienesSomos = () => {
           FILOSOFIA con que la empresa actuará y se desarrollará en cualquier circunstancia
           <br />
           <br />
-          <button className='button_home'>
-            Ver mas
-          </button>
-
+        <br />
+        <br />
+        
         </div>
-        <img className='img-fluid portada3' src={portada2} alt="" />
+        <img className='img-fluid portada3' src={portada3} alt="" />
 
       </aside>
 
@@ -77,6 +75,56 @@ const QuienesSomos = () => {
             VALORES
           </h3>
         </div>
+        <div className='container_valores'>
+          <p>
+            Los valores de  ALVEN serán siempre nuestra guía de acción, ya
+            que ante todo es una organización hecha por gente de primera para
+            hacer una empresa de primera.
+          </p>
+        </div>
+        <div className='container_valores_check'>
+          <i className='bx bx-check'></i>
+          <p>Servicio de calidad al cliente <br />
+            Declaramos que el cliente (interno y externo) es lo más importante para
+            la consolidación de nuestro negocio, y de la satisfacción de sus necesidades y de
+            la superación de sus expectativas, dependerá el futuro de nuestra empresa.</p>
+        </div>
+        <div className='container_valores_check'>
+          <i className='bx bx-check'></i>
+          <p>Honestidad <br />
+            Creemos en la responsabilidad de cada uno
+            de los integrantes de la empresa y de la congruencia de
+            los actos con que  desempeñan  las operaciones en nuestro negocio.</p>
+        </div>
+        <div className='container_valores_check'>
+          <i className='bx bx-check'></i>
+          <p>Trabajo en equipo <br />
+            Creemos  que la única forma de generar los resultados y lograr las metas establecidas
+            para todos quienes integramos la organización, es la coordinación e involucramiento en
+            las operaciones de la empresa como un grupo y equipo de alto rendimiento.</p>
+        </div>
+        <div className='container_valores_check'>
+          <i className='bx bx-check'></i>
+          <p>Responsabilidad  <br />
+            Creemos que el cumplimiento de nuestras responsabilidades para con
+            nuestro trabajo, nuestros compañeros y para con el cliente son el factor
+            de éxito de nuestro negocio y la forma en que podremos permanecer en el mercado</p>
+        </div>
+        <div className='container_valores_check'>
+          <i className='bx bx-check'></i>
+          <p>Comunicación <br />
+            Estamos seguros de que la transparencia, el
+            generar y el compartir la información en todos sentidos de
+            la organización, nos comprometerá y guiara al logro de los objetivos propuestos </p>
+        </div>
+        <div className='container_valores_check'>
+          <i className='bx bx-check'></i>
+          <p>Confianza <br />
+            Creemos en la gente y somos congruentes con nuestros actos
+            regidos por nuestros valores personales y de empresa, generando
+            un clima organizacional sano y comprometedor</p>
+        </div>
+
       </aside>
     </>
   )

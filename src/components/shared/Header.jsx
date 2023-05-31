@@ -5,13 +5,6 @@ import { NavLink } from 'react-router-dom'
 const Header = () => {
   const navbar = useRef()
 
-  const sysdoc = () => {
-    window.open('http://165.22.34.176/login')
-  }
-  const portalTrans = () => {
-    window.open('https://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=12004#.ZGUICexBz0s')
-
-  }
   return (
     <>
       <nav ref={navbar} className="navbar navbar-expand-lg navbar-light shadow">
@@ -72,7 +65,7 @@ const Header = () => {
               </ul>
             </div>
             <div className="navbar align-self-center gap-3 d-flex">
-              <span className="links_local" onClick={sysdoc}>
+              <span className="links_local">
                 <i className='bx bx-user'></i>
                 Ingresar
               </span>

@@ -1,13 +1,21 @@
 import React from 'react'
 import portada1 from './../../assets/img/portada1.png'
 import portada2 from './../../assets/img/portada2.png'
+import portada3 from './../../assets/img/portada3.png'
 import './style.css'
+import { useNavigate } from "react-router-dom";
 const Home = () => {
+  const navigate = useNavigate()
+
+  const verMas = () => {
+    navigate('/quienessomos')
+  };
   return (
     <>
       <div class="banner">
         <img src={portada1} alt="portada" />
         <div class="title">
+          <h1>ALVEN INMOBILIARIA</h1>
           <h3>Encuentra tu lugar ideal</h3>
         </div>
       </div>
@@ -28,7 +36,7 @@ const Home = () => {
           <br />
           Nuestro compromiso es con la calidad del servicio y la finalidad es tener clientes de por vida, en ningún momento extensión y amplitud significa menor calidad, por el contrario, nuestro compromiso es con la calidad del servicio.
           <br />
-          <button className='button_home'>
+          <button className='button_home' onClick={verMas}>
             Ver mas
           </button>
         </div>
@@ -45,12 +53,12 @@ const Home = () => {
           FILOSOFIA con que la empresa actuará y se desarrollará en cualquier circunstancia
           <br />
           <br />
-          <button className='button_home'>
+          <button className='button_home' onClick={verMas}>
             Ver mas
           </button>
 
         </div>
-        <img className='img-fluid portada3' src={portada2} alt="" />
+        <img className='img-fluid portada3' src={portada3} alt="" />
 
       </aside>
     </>

@@ -1,0 +1,28 @@
+.contacto_h2 {
+    margin: 50px 100px;
+    color: #EE8178;
+}
+
+.contacto_h4 {
+    color: #EE8178;
+}
+
+.button_local {
+    background-color: #EE8178;
+    border-color: #EE8178;
+}
+
+.local_contacto {
+    background-color: #303E4B;
+    /* background-color: red; */
+}
+
+.iframe-container {
+    display: flex;
+    justify-content: center;
+}
+.iframe-container iframe{
+    width: 80%;
+    height: 300px;
+    
+}
