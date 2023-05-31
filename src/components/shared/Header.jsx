@@ -5,6 +5,9 @@ import { NavLink } from 'react-router-dom'
 const Header = () => {
   const navbar = useRef()
 
+  const modoAdmin = () => {
+    window.open('https://magenta-sorbet-1b3b81.netlify.app')
+  }
   return (
     <>
       <nav ref={navbar} className="navbar navbar-expand-lg navbar-light shadow">
@@ -64,7 +67,7 @@ const Header = () => {
 
               </ul>
             </div>
-            <div className="navbar align-self-center gap-3 d-flex">
+            <div className="navbar align-self-center gap-3 d-flex" onClick={modoAdmin}>
               <span className="links_local">
                 <i className='bx bx-user'></i>
                 Ingresar
