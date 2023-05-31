@@ -23,6 +23,9 @@ function App() {
         <Route path='/quienessomos' element={<QuienesSomos />} />
       </Routes>
       <Footer />
+      <a href="https://wa.link/zu5485" className="btn-whatsapp" target="_blank">
+            <i className='bx bxl-whatsapp'></i>
+          </a>
     </>
   )
 }
