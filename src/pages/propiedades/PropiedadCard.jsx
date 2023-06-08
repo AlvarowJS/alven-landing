@@ -1,25 +1,31 @@
 import React from 'react'
 import img from './../../assets/img/portada2.png'
 import './style.css'
-const PropiedadCard = () => {
+import { useNavigate } from 'react-router-dom'
+const PropiedadCard = ({ propiedad }) => {
+
+    const navigate = useNavigate()
+    
+    let img = `http://127.0.0.1:8000/storage/${propiedad?.id}/${propiedad?.foto[0]?.fotos}`
+
+    const verPropiedad = (id) => {
+        navigate(`/propiedad-info/${id}`)
+    }
+
     return (
-        // <div className="mx-4 mb-5 propiedad_card">
-        //     <img src={img} className='img-fluid w-100' alt="" />
-        //     <div className="propiedad_card-description">
-        //         <h2>Estado de mexico</h2>
-        //         <p>Dirección</p>
-        //         <p>Estado</p>
-        //         <p>Baños</p><p>Precio</p>
-        //     </div>
-        // </div>
-        <div class="card" style={{ width: '18rem' }}>
-            <img class="card-img-top" src={img} alt="Card image cap" />
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                
+        <>
+            <div class="card" style={{ width: '18rem', cursor: 'pointer' }} onClick={() => verPropiedad(propiedad?.id)}>
+                <img class="card-img-top" src={img} alt="Card image cap" />
+                <div class="card-body">
+                    <h5 class="card-title">{propiedad?.publicidad?.encabezado}</h5>
+                    <p class="card-text">Precio: {propiedad?.publicidad?.precio_venta} MXM</p>
+                    <p class="card-text">{propiedad?.publicidad?.descripcion} MXM</p>
+                    <p class="card-text">Dirección: {propiedad?.direccion?.estado} - {propiedad?.direccion?.municipio} - {propiedad?.direccion?.colonia} - {propiedad?.direccion?.calle} </p>
+                    <p class="card-text">Tipo de propiedad: {propiedad?.general?.tipo_propiedad} </p>
+                    <a href={propiedad?.publicidad?.video_url} class="card-text" target='_blank'>Video en Youtube</a>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

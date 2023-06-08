@@ -1,7 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import portadaCom from './../../assets/img/contacto.png'
 import './style.css'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+const MySwal = withReactContent(Swal)
+
+import { useForm } from 'react-hook-form'
+import axios from 'axios'
+const URL = 'http://127.0.0.1:8000/api/v1/contacto-register'
 const Contactenos = () => {
+  const { handleSubmit, register, reset, watch } = useForm()
+  const defaultForm = {
+    nombre: '',
+    apellido: '',
+    email: '',
+    telefono: '',
+    direccion_inmueble: ''
+  }
+  const submit = data => {
+    axios.post(URL, data)
+      .then(res => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Mensaje Enviado',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        reset(defaultForm)
+      })
+      .catch(err => console.log(err))
+  }
   return (
     <>
       <h2 className='contacto_h2'>Contactenos</h2>
@@ -12,37 +41,41 @@ const Contactenos = () => {
         <div className='col-md p-4'>
 
           <h4 className='contacto_h4'>Estas a un paso de nosotros...</h4>
-          <div className="row mb-4">
-            <div className="col-md">
-              <label for="exampleFormControlInput1" className="form-label text-light">Nombre</label>
-              <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Juan" />
+          <form onSubmit={handleSubmit(submit)}>
+
+            <div className="row mb-4">
+              <div className="col-md">
+                <label htmlFor="nombre" className="form-label text-light">Nombre</label>
+                <input type="text" className="form-control" id="nombre" placeholder="Juan"  {...register('nombre')} />
+              </div>
+              <div className="col-md">
+                <label htmlFor="apellido" className="form-label text-light">Apellido</label>
+                <input type="text" className="form-control" id="apellido" placeholder="Perez" {...register('apellido')} />
+              </div>
             </div>
-            <div className="col-md">
-              <label for="exampleFormControlInput1" className="form-label text-light">Apellido</label>
-              <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Perez" />
+            <div className="row mb-4">
+              <div className="col-md">
+                <label htmlFor="celular" className="form-label text-light">Telefono</label>
+                <input type="text" className="form-control" id="celular" placeholder="55 3434 3434" {...register('telefono')} />
+              </div>
+              <div className="col-md">
+                <label htmlFor="email" className="form-label text-light">Correo</label>
+                <input type="email" className="form-control" id="email" placeholder="name@example.com" {...register('email')} />
+              </div>
             </div>
-          </div>
-          <div className="row mb-4">
-            <div className="col-md">
-              <label for="exampleFormControlInput1" className="form-label text-light">Telefono</label>
-              <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="55 3434 3434" />
-            </div>
-            <div className="col-md">
-              <label for="exampleFormControlInput1" className="form-label text-light">Correo</label>
-              <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
-            </div>
-          </div>
-          <div className="row mb-4">
-            <div className="col-md">
-              <label for="exampleFormControlInput1" className="form-label text-light">Mensaje</label>
-              <textarea type="text" className="form-control" id="exampleFormControlInput1" placeholder="Quiero información sobre..." />
+            <div className="row mb-4">
+              <div className="col-md">
+                <label htmlFor="mensaje" className="form-label text-light">Mensaje</label>
+                <textarea type="text" className="form-control" id="mensaje" placeholder="Quiero información sobre..." {...register('direccion_inmueble')} />
+              </div>
+
             </div>
 
-          </div>
+            <button className='btn btn-primary button_local'>
+              Contactar
+            </button>
+          </form>
 
-          <button className='btn btn-primary button_local'>
-            Contactar
-          </button>
         </div>
       </aside>
       <aside className='iframe-container'>

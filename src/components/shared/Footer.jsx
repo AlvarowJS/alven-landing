@@ -7,7 +7,7 @@ const Footer = () => {
   }
   return (
     <footer className="footer">
-      <p className='footer__text'>&copy; Alven Inmoviliaria 2023</p>
+      <p className='footer__text'>&copy; Alven Inmobiliaria 2023</p>
       <ul className="redes">
         <li className="redes__items" onClick={openFacebook}>
           <a className="redes__links">

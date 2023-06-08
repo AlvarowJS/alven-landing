@@ -7,6 +7,7 @@ import Propiedad from './pages/propiedades/Propiedad'
 import QuienesSomos from './pages/quienesSomos/QuienesSomos'
 import Header from './components/shared/Header'
 import Footer from './components/shared/Footer'
+import PropiedadCardInfo from './pages/propiedades/PropiedadCardInfo'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path='/contactenos' element={<Contactenos />} />
         <Route path='/propiedades' element={<Propiedad />} />
         <Route path='/quienessomos' element={<QuienesSomos />} />
+        <Route path='/propiedad-info/:id' element={<PropiedadCardInfo />} />
       </Routes>
       <Footer />
       <a href="https://wa.link/zu5485" className="btn-whatsapp" target="_blank">
