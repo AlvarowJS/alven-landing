@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import './style.css'
 import logo from './../../assets/img/logo.png'
-const URL = 'http://127.0.0.1:8000/api/v1/ver-propiedad'
+const URL = 'https://backend.alven-inmobiliaria.com.mx/api/v1/ver-propiedad'
 const PropiedadCardInfo = () => {
     const id = useParams();
     const [propiedades, setPropiedades] = useState()
@@ -81,14 +81,14 @@ const PropiedadCardInfo = () => {
 
                 </div>
                 <div className='d-flex flex-column align-items-center flex-nowrap'>
-                    <img src={`http://127.0.0.1:8000/storage/${propiedades?.id}/${propiedades?.foto[0]?.fotos}`} style={{ width: '500px' }} alt="" />
+                    <img src={`https://backend.alven-inmobiliaria.com.mx/storage/${propiedades?.id}/${propiedades?.foto[0]?.fotos}`} style={{ width: '500px' }} alt="" />
 
                     <h4>Galeria de fotos</h4>
                     <div className='d-flex justify-content-center flex-wrap gap-4 ' style={{ width: '100%' }}>
                         {propiedades?.foto?.map((foto, index) => (
                             <img
                                 key={index}
-                                src={`http://127.0.0.1:8000/storage/${propiedades?.id}/${foto?.fotos}`}
+                                src={`https://backend.alven-inmobiliaria.com.mx/storage/${propiedades?.id}/${foto?.fotos}`}
                                 style={{
                                     width: '300px',
                                     height: 'auto',

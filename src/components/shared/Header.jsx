@@ -6,7 +6,7 @@ const Header = () => {
   const navbar = useRef()
 
   const modoAdmin = () => {
-    window.open('https://magenta-sorbet-1b3b81.netlify.app')
+    window.open('http://admin.alven-inmobiliaria.com.mx')
   }
   return (
     <>
@@ -51,7 +51,7 @@ const Header = () => {
                   className={({ isActive }) => isActive ? 'navbar__link-active navbar__links' : 'navbar__links'}
                 >
                   <li className="nav-item">
-                    Quienes Somos
+                    Quiénes Somos
                   </li>
                 </NavLink>
 
@@ -60,7 +60,7 @@ const Header = () => {
                   className={({ isActive }) => isActive ? 'navbar__link-active navbar__links' : 'navbar__links'}
                 >
                   <li className="nav-item">
-                    Contactenos
+                    Contáctenos
                   </li>
                 </NavLink>         
 

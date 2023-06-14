@@ -6,7 +6,7 @@ const PropiedadCard = ({ propiedad }) => {
 
     const navigate = useNavigate()
     
-    let img = `http://127.0.0.1:8000/storage/${propiedad?.id}/${propiedad?.foto[0]?.fotos}`
+    let img = `https://backend.alven-inmobiliaria.com.mx/storage/${propiedad?.id}/${propiedad?.foto[0]?.fotos}`
 
     const verPropiedad = (id) => {
         navigate(`/propiedad-info/${id}`)
