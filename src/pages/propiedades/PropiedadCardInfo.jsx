@@ -3,7 +3,9 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import './style.css'
 import logo from './../../assets/img/logo.png'
-const URL = 'https://backend.alven-inmobiliaria.com.mx/api/v1/ver-propiedad'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faToilet, faBed, faKitchenSet, faWarehouse, faLayerGroup, faHouse, faSort, faSquareCheck, faMoneyBill, faDog, faLocationDot } from '@fortawesome/free-solid-svg-icons'
+const URL = 'https://backend.alven-inmobiliaria.com.mx//api/v1/ver-propiedad'
 const PropiedadCardInfo = () => {
     const id = useParams();
     const [propiedades, setPropiedades] = useState()
@@ -43,13 +45,13 @@ const PropiedadCardInfo = () => {
             </div>
             <div className='d-flex flex-wrap justify-content-around mx-5'>
                 <div className='datos-propiedad'>
-                    <p>Precio      {propiedades?.publicidad?.precio_venta}</p>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faMoneyBill} />Precio{propiedades?.publicidad?.precio_venta}</p>
                     <p>
                         {propiedades?.publicidad?.descripcion}
                     </p>
                     <p>
-                        Con las siguientes caracteristicas <br />
-                        Mascotas: {propiedades?.caracteristica?.mascotas}
+                        <h3> Con las siguientes caracteristicas </h3><br />
+                        <FontAwesomeIcon className='descripcion-icono' icon={faDog} /> Mascotas: {propiedades?.caracteristica?.mascotas}
                     </p>
                     <h4>Espacios: </h4>
                     {espacios?.map((item, index) => (
@@ -66,29 +68,33 @@ const PropiedadCardInfo = () => {
                         <p key={index}>- {item}</p>
                     ))}
 
+
                     <h4>Basicos: </h4>
-                    <p>Superficie del terreno: {propiedades?.basico?.superficie_terreno}</p>
-                    <p>Superfice de construcción: {propiedades?.basico?.superficie_construccion}</p>
-                    <p>Baños: {propiedades?.basico?.banios}</p>
-                    <p>Medios Baños: {propiedades?.basico?.medios_banios}</p>
-                    <p>Recamaras: {propiedades?.basico?.recamaras}</p>
-                    <p>Cocinas: {propiedades?.basico?.cocinas}</p>
-                    <p>Estacionamiento: {propiedades?.basico?.estacionamiento}</p>
-                    <p>Niveles construidos: {propiedades?.basico?.niveles_construidos}</p>
-                    <p>Número de casas: {propiedades?.basico?.numero_casas}</p>
-                    <p>Número de elevadores: {propiedades?.basico?.numero_elevadores}</p>
-                    <p>Piso Ubicado: {propiedades?.basico?.piso_ubicado}</p>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faSquareCheck} />Superficie del terreno: {propiedades?.basico?.superficie_terreno}</p>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faSquareCheck} />Superfice de construcción: {propiedades?.basico?.superficie_construccion}</p>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faToilet} /> Baños: {propiedades?.basico?.banios}</p>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faToilet} /> Medios Baños: {propiedades?.basico?.medios_banios}</p>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faBed} /> Recamaras: {propiedades?.basico?.recamaras}</p>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faKitchenSet} /> Cocinas: {propiedades?.basico?.cocinas}</p>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faWarehouse} />Estacionamiento: {propiedades?.basico?.estacionamiento}</p>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faLayerGroup} />Niveles construidos: {propiedades?.basico?.niveles_construidos}</p>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faHouse} />Número de casas: {propiedades?.basico?.numero_casas}</p>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faSort} />Número de elevadores: {propiedades?.basico?.numero_elevadores}</p>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faSquareCheck} />Piso Ubicado: {propiedades?.basico?.piso_ubicado}</p>
 
                 </div>
                 <div className='d-flex flex-column align-items-center flex-nowrap'>
-                    <img src={`https://backend.alven-inmobiliaria.com.mx/storage/${propiedades?.id}/${propiedades?.foto[0]?.fotos}`} style={{ width: '500px' }} alt="" />
+                    <p> <FontAwesomeIcon icon={faLocationDot} className='descripcion-icono'/>
+                        {propiedades?.direccion?.calle} - {propiedades?.direccion?.numero} - {propiedades?.direccion?.municipio} - {propiedades?.direccion?.estado}
+                    </p>
+                    <img src={`https://backend.alven-inmobiliaria.com.mx//storage/${propiedades?.id}/${propiedades?.foto[0]?.fotos}`} style={{ width: '500px' }} alt="" />
 
                     <h4>Galeria de fotos</h4>
                     <div className='d-flex justify-content-center flex-wrap gap-4 ' style={{ width: '100%' }}>
                         {propiedades?.foto?.map((foto, index) => (
                             <img
                                 key={index}
-                                src={`https://backend.alven-inmobiliaria.com.mx/storage/${propiedades?.id}/${foto?.fotos}`}
+                                src={`https://backend.alven-inmobiliaria.com.mx//storage/${propiedades?.id}/${foto?.fotos}`}
                                 style={{
                                     width: '300px',
                                     height: 'auto',

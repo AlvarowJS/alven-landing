@@ -14,7 +14,7 @@
     justify-content: center;
     gap: 20px;
     font-size: 1.2rem;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
   }
   .redes__items {
     width: 35px;
@@ -25,11 +25,29 @@
     justify-content: center;
     align-items: center;
   }
+  .politicas{
+    display: flex;
+    flex-direction: row;        
+    padding-bottom: 20px;
+    gap: 20px;
+  }
+  .politicas img {
+    width: 50px;
+    height: 34px;
+  }
+  .politicas a {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+  }
+  .politicas a:hover {
+    color: #EE8178;
+  }
   @media screen and (min-width: 720px) {
     .footer {
       padding: var(--padding-tablet);
     }
     .footer__text{
-      margin-bottom: 30px;
+      margin-bottom: 10px;
     }
   }

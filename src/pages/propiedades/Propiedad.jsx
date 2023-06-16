@@ -3,7 +3,8 @@ import Select from 'react-select'
 import ReactPaginate from 'react-paginate'
 import PropiedadCard from './PropiedadCard'
 import axios from 'axios'
-const URL = 'https://backend.alven-inmobiliaria.com.mx/api/v1/propiedades-publico'
+const URL = 'https://backend.alven-inmobiliaria.com.mx//api/v1/propiedades-publico'
+
 const Propiedad = () => {
   const [propiedads, setPropiedads] = useState()
   const [propiedadSearch, setPropiedadSearch] = useState()
@@ -11,9 +12,15 @@ const Propiedad = () => {
   const [precioMin, setPrecioMin] = useState()
   const [precioMax, setPrecioMax] = useState()
   const [pageNumber, setPageNumber] = useState(0)
-  const propiedadesPerPage = 2
+  const propiedadesPerPage = 8
 
-  console.log("x")
+  const optionsTipo = [
+    { value: "todos", label: "todos" },
+    { value: "venta", label: "venta" },
+    { value: "renta", label: "renta" },
+    
+  ]
+
   const options = [
     { value: "todos", label: "todos" },
     { value: "Aguascalientes", label: "Aguascalientes" },
@@ -49,11 +56,27 @@ const Propiedad = () => {
     { value: "Zacatecas", label: "Zacatecas" }
   ];
 
+  const selecionarTipo = (selectedOptionTipo) => {
+    let opcionEstadoTipo = selectedOptionTipo?.value
+
+    if (propiedads) {
+      setFilterPropiedad(propiedads?.filter(e => e?.general?.tipo_operacion.toLowerCase().indexOf(opcionEstadoTipo?.toLowerCase()) !== -1))
+    }
+
+    if (opcionEstadoTipo == 'todos') {
+      setFilterPropiedad(propiedads)
+    }
+  }
   const seleccionarEstado = (selectedOption) => {
     console.log(selectedOption?.value)
     let opcionEstado = selectedOption?.value
+
     if (propiedads) {
       setFilterPropiedad(propiedads?.filter(e => e?.direccion?.estado.toLowerCase().indexOf(opcionEstado?.toLowerCase()) !== -1))
+    }
+
+    if (opcionEstado == 'todos') {
+      setFilterPropiedad(propiedads)
     }
   }
   const handlePrecioMinChange = (event) => {
@@ -143,6 +166,13 @@ const Propiedad = () => {
               className='my-2'
               options={options}
               onChange={seleccionarEstado}
+            />
+
+            Tipo de propiedad
+            <Select
+              className='my-2'
+              options={optionsTipo}
+              onChange={selecionarTipo}
             />
 
             Precio
