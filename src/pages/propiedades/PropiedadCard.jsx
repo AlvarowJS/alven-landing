@@ -9,7 +9,7 @@ const PropiedadCard = ({ propiedad }) => {
 
     const navigate = useNavigate()
     
-    let img = `https://backend.alven-inmobiliaria.com.mx//storage/${propiedad?.id}/${propiedad?.foto[0]?.fotos}`
+    let img = `https://backend.alven-inmobiliaria.com.mx/storage/${propiedad?.id}/${propiedad?.foto[0]?.fotos}`
 
     const verPropiedad = (id) => {
         navigate(`/propiedad-info/${id}`)

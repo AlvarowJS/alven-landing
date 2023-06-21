@@ -25,7 +25,7 @@ function App() {
         <Route path='/propiedad-info/:id' element={<PropiedadCardInfo />} />
       </Routes>
       <Footer />
-      <a href="https://wa.link/npttir" className="btn-whatsapp" target="_blank">
+      <a href="https://wa.link/dck182" className="btn-whatsapp" target="_blank">
             <i className='bx bxl-whatsapp'></i>
           </a>
     </>

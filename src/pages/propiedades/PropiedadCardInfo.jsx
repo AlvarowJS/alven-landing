@@ -5,7 +5,7 @@ import './style.css'
 import logo from './../../assets/img/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faToilet, faBed, faKitchenSet, faWarehouse, faLayerGroup, faHouse, faSort, faSquareCheck, faMoneyBill, faDog, faLocationDot } from '@fortawesome/free-solid-svg-icons'
-const URL = 'https://backend.alven-inmobiliaria.com.mx//api/v1/ver-propiedad'
+const URL = 'https://backend.alven-inmobiliaria.com.mx/api/v1/ver-propiedad'
 const PropiedadCardInfo = () => {
     const id = useParams();
     const [propiedades, setPropiedades] = useState()
@@ -43,9 +43,11 @@ const PropiedadCardInfo = () => {
                 <h1>{propiedades?.publicidad?.encabezado}</h1>
                 <img src={logo} alt="" style={{ width: "100px", height: "100px" }} />
             </div>
-            <div className='d-flex flex-wrap justify-content-around mx-5'>
-                <div className='datos-propiedad'>
-                    <p><FontAwesomeIcon className='descripcion-icono' icon={faMoneyBill} />Precio{propiedades?.publicidad?.precio_venta}</p>
+            {/* <div className='d-flex flex-wrap justify-content-around mx-5'> */}
+            <div className='row mx-5'>
+                {/* <div className='datos-propiedad'> */}
+                <div className='col'>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faMoneyBill} />Precio: {propiedades?.publicidad?.precio_venta}</p>
                     <p>
                         {propiedades?.publicidad?.descripcion}
                     </p>
@@ -54,17 +56,17 @@ const PropiedadCardInfo = () => {
                         <FontAwesomeIcon className='descripcion-icono' icon={faDog} /> Mascotas: {propiedades?.caracteristica?.mascotas}
                     </p>
                     <h4>Espacios: </h4>
-                    {espacios?.map((item, index) => (
+                    {espacios && espacios?.map((item, index) => (
                         <p key={index}>- {item}</p>
                     ))}
 
                     <h4>Instalaciones: </h4>
-                    {instalaciones?.map((item, index) => (
+                    {instalaciones && instalaciones?.map((item, index) => (
                         <p key={index}>- {item}</p>
                     ))}
 
                     <h4>Restricciones: </h4>
-                    {resctricciones?.map((item, index) => (
+                    {resctricciones && resctricciones?.map((item, index) => (
                         <p key={index}>- {item}</p>
                     ))}
 
@@ -83,22 +85,23 @@ const PropiedadCardInfo = () => {
                     <p><FontAwesomeIcon className='descripcion-icono' icon={faSquareCheck} />Piso Ubicado: {propiedades?.basico?.piso_ubicado}</p>
 
                 </div>
-                <div className='d-flex flex-column align-items-center flex-nowrap'>
+                {/* <div className='d-flex flex-column align-items-center flex-nowrap'> */}
+                <div className='col'>
                     <p> <FontAwesomeIcon icon={faLocationDot} className='descripcion-icono'/>
                         {propiedades?.direccion?.calle} - {propiedades?.direccion?.numero} - {propiedades?.direccion?.municipio} - {propiedades?.direccion?.estado}
                     </p>
-                    <img src={`https://backend.alven-inmobiliaria.com.mx//storage/${propiedades?.id}/${propiedades?.foto[0]?.fotos}`} style={{ width: '500px' }} alt="" />
+                    <img src={`https://backend.alven-inmobiliaria.com.mx/storage/${propiedades?.id}/${propiedades?.foto[0]?.fotos}`} style={{ width: '500px' }} alt="" />
 
                     <h4>Galeria de fotos</h4>
                     <div className='d-flex justify-content-center flex-wrap gap-4 ' style={{ width: '100%' }}>
                         {propiedades?.foto?.map((foto, index) => (
                             <img
                                 key={index}
-                                src={`https://backend.alven-inmobiliaria.com.mx//storage/${propiedades?.id}/${foto?.fotos}`}
+                                src={`https://backend.alven-inmobiliaria.com.mx/storage/${propiedades?.id}/${foto?.fotos}`}
                                 style={{
                                     width: '300px',
                                     height: 'auto',
-                                    marginRight: '10px',
+                                    // marginRight: '10px',
                                     border: '',
                                     boxShadow: '0 0 5px rgba(0, 0, 0, 1)'
                                 }}

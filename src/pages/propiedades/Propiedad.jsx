@@ -3,7 +3,7 @@ import Select from 'react-select'
 import ReactPaginate from 'react-paginate'
 import PropiedadCard from './PropiedadCard'
 import axios from 'axios'
-const URL = 'https://backend.alven-inmobiliaria.com.mx//api/v1/propiedades-publico'
+const URL = 'https://backend.alven-inmobiliaria.com.mx/api/v1/propiedades-publico'
 
 const Propiedad = () => {
   const [propiedads, setPropiedads] = useState()
@@ -15,14 +15,14 @@ const Propiedad = () => {
   const propiedadesPerPage = 8
 
   const optionsTipo = [
-    { value: "todos", label: "todos" },
-    { value: "venta", label: "venta" },
-    { value: "renta", label: "renta" },
+    { value: "todos", label: "Todos" },
+    { value: "venta", label: "Venta" },
+    { value: "renta", label: "Renta" },
     
   ]
 
   const options = [
-    { value: "todos", label: "todos" },
+    { value: "todos", label: "Todos" },
     { value: "Aguascalientes", label: "Aguascalientes" },
     { value: "Baja California", label: "Baja California" },
     { value: "Baja California Sur", label: "Baja California Sur" },

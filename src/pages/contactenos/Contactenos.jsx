@@ -7,7 +7,7 @@ const MySwal = withReactContent(Swal)
 
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
-const URL = 'https://backend.alven-inmobiliaria.com.mx//api/v1/contacto-register'
+const URL = 'https://backend.alven-inmobiliaria.com.mx/api/v1/contacto-register'
 const Contactenos = () => {
   const { handleSubmit, register, reset, watch } = useForm()
   const defaultForm = {
@@ -55,7 +55,7 @@ const Contactenos = () => {
             </div>
             <div className="row mb-4">
               <div className="col-md">
-                <label htmlFor="celular" className="form-label text-light">Telefono</label>
+                <label htmlFor="celular" className="form-label text-light">Teléfono</label>
                 <input type="text" className="form-control" id="celular" placeholder="55 3434 3434" {...register('telefono')} />
               </div>
               <div className="col-md">

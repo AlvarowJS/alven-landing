@@ -9,17 +9,17 @@ const Footer = () => {
     <footer className="footer">
       <p className='footer__text'>&copy; Alven Inmobiliaria 2023</p>
       <ul className="redes">
-        <li className="redes__items">
+        <li className="redes__items" onClick={() => window.open('https://www.facebook.com/Inmobiliaria.alven.7/')}>
           <a className="redes__links">
             <i className='bx bxl-facebook'></i>
           </a>
         </li>
-        <li className="redes__items">
+        <li className="redes__items" onClick={() => window.open('https://www.instagram.com/alveninmo/')}>        
           <a href="" className="redes__links">
-            <i className='bx bxl-linkedin-square'></i>
+            <i className='bx bxl-instagram-alt'></i>
           </a>
         </li>
-        <li className="redes__items">
+        <li className="redes__items" onClick={() => window.open('https://www.youtube.com/channel/UCxAc3sXB6zsZJCizmIhqWEA')}>
           <a href="" className="redes__links">
             <i className='bx bxl-youtube'></i>
           </a>
