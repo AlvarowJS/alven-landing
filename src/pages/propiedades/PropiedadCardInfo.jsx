@@ -5,8 +5,14 @@ import './style.css'
 import logo from './../../assets/img/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faToilet, faBed, faKitchenSet, faWarehouse, faLayerGroup, faHouse, faSort, faSquareCheck, faMoneyBill, faDog, faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+
 const URL = 'https://backend.alven-inmobiliaria.com.mx/api/v1/ver-propiedad'
 const PropiedadCardInfo = () => {
+    const containerStyle = {
+        width: '100%',
+        height: '400px'
+    };
     const id = useParams();
     const [propiedades, setPropiedades] = useState()
     const [espacios, setEspacios] = useState()
@@ -87,7 +93,7 @@ const PropiedadCardInfo = () => {
                 </div>
                 {/* <div className='d-flex flex-column align-items-center flex-nowrap'> */}
                 <div className='col'>
-                    <p> <FontAwesomeIcon icon={faLocationDot} className='descripcion-icono'/>
+                    <p> <FontAwesomeIcon icon={faLocationDot} className='descripcion-icono' />
                         {propiedades?.direccion?.calle} - {propiedades?.direccion?.numero} - {propiedades?.direccion?.municipio} - {propiedades?.direccion?.estado}
                     </p>
                     <img src={`https://backend.alven-inmobiliaria.com.mx/storage/${propiedades?.id}/${propiedades?.foto[0]?.fotos}`} style={{ width: '500px' }} alt="" />
@@ -109,6 +115,27 @@ const PropiedadCardInfo = () => {
                             />
                         ))}
                     </div>
+
+                    <h4>Ubicación</h4>
+              
+                    {propiedades?.direccion?.LAT && propiedades?.direccion?.LON ? (
+                        <LoadScript
+                            googleMapsApiKey="AIzaSyCq_n_0fxE6-qDWeqeFZBfahzXrGDy0U_Q"
+                        >
+                            <GoogleMap
+                                mapContainerStyle={containerStyle}
+                                // onClick={handleMapClick}
+                                center={{
+                                    lat: parseFloat(propiedades?.direccion?.LAT),
+                                    lng: parseFloat(propiedades?.direccion?.LON),
+                                }}
+                                zoom={15}
+                            >
+
+                            </GoogleMap>
+                        </LoadScript>
+                    ) : "Sin asignar"
+                    }
                 </div>
             </div>
         </>
