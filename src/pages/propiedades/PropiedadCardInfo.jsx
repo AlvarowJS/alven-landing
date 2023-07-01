@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faToilet, faBed, faKitchenSet, faWarehouse, faLayerGroup, faHouse, faSort, faSquareCheck, faMoneyBill, faDog, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
-const URL = 'https://backend.alven-inmobiliaria.com.mx/api/v1/ver-propiedad'
+const URL = 'http://127.0.0.1:8000/api/v1/ver-propiedad'
 const PropiedadCardInfo = () => {
     const containerStyle = {
         width: '100%',
@@ -96,14 +96,14 @@ const PropiedadCardInfo = () => {
                     <p> <FontAwesomeIcon icon={faLocationDot} className='descripcion-icono' />
                         {propiedades?.direccion?.calle} - {propiedades?.direccion?.numero} - {propiedades?.direccion?.municipio} - {propiedades?.direccion?.estado}
                     </p>
-                    <img src={`https://backend.alven-inmobiliaria.com.mx/storage/${propiedades?.id}/${propiedades?.foto[0]?.fotos}`} style={{ width: '500px' }} alt="" />
+                    <img src={`http://127.0.0.1:8000/storage/${propiedades?.id}/${propiedades?.foto[0]?.fotos}`} style={{ width: '500px' }} alt="" />
 
                     <h4>Galeria de fotos</h4>
                     <div className='d-flex justify-content-center flex-wrap gap-4 ' style={{ width: '100%' }}>
                         {propiedades?.foto?.map((foto, index) => (
                             <img
                                 key={index}
-                                src={`https://backend.alven-inmobiliaria.com.mx/storage/${propiedades?.id}/${foto?.fotos}`}
+                                src={`http://127.0.0.1:8000/storage/${propiedades?.id}/${foto?.fotos}`}
                                 style={{
                                     width: '300px',
                                     height: 'auto',

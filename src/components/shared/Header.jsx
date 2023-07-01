@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import logo from './../../assets/img/logo.png'
+import logo from './../../assets/img/logo2.png'
 import './style/style.css'
 import { NavLink } from 'react-router-dom'
 const Header = () => {
@@ -22,10 +22,10 @@ const Header = () => {
             aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className='mx-4 '>
+          {/* <div className='mx-4 '>
             ALVEN <br />
             Inmobiliaria
-          </div>
+          </div> */}
           <div className="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
             id="templatemo_main_nav">
             <div className="flex-fill">

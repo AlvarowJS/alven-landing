@@ -7,7 +7,7 @@ const MySwal = withReactContent(Swal)
 
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
-const URL = 'https://backend.alven-inmobiliaria.com.mx/api/v1/contacto-register'
+const URL = 'http://127.0.0.1:8000/api/v1/contacto-register'
 const Contactenos = () => {
   const { handleSubmit, register, reset, watch } = useForm()
   const defaultForm = {
