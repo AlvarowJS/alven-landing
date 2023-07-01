@@ -11,7 +11,7 @@ const Asesor = () => {
     }, [])
 
     return (
-        <div className='text-center'>
+        <div className='text-center' style={{color: '#EE8178'}}>
             <h2 className='my-4'>Nuestro Equipo</h2>
             <div className='container d-flex flex-wrap justify-content-center gap-4'>
                 {/* <div className='row'> */}
