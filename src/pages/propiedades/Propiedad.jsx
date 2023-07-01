@@ -3,7 +3,7 @@ import Select from 'react-select'
 import ReactPaginate from 'react-paginate'
 import PropiedadCard from './PropiedadCard'
 import axios from 'axios'
-const URL = 'http://127.0.0.1:8000/api/v1/propiedades-publico'
+const URL = 'https://backend.alven-inmobiliaria.com.mx/api/v1/propiedades-publico'
 
 const Propiedad = () => {
   const [propiedads, setPropiedads] = useState()
@@ -94,16 +94,20 @@ const Propiedad = () => {
   const pagesVisited = pageNumber * propiedadesPerPage
   const displayPropiedades = filterPropiedad
     ? filterPropiedad.map((propiedad) =>
-      propiedad.estado ? (
+      // propiedad.estado ? 
+      (
         <PropiedadCard key={propiedad?.id} propiedad={propiedad} />
-      ) : null
+      ) 
+      // : null
     )
     : propiedads
       ?.slice(pagesVisited, pagesVisited + propiedadesPerPage)
       .map((propiedad) =>
-        propiedad.estado ? (
+        // propiedad.estado ? 
+        (
           <PropiedadCard key={propiedad?.id} propiedad={propiedad} />
-        ) : null
+        ) 
+        // : null
       );
   // const displayPropiedades = propiedads
   //   ?.slice(pagesVisited, pagesVisited + propiedadesPerPage)
@@ -151,11 +155,11 @@ const Propiedad = () => {
   return (
     <>
       <h2 className='contacto_h2'>Propiedades</h2>
-      <div class="container">
+      <div className="container">
         <div className='row px-4 mx-5'>
           <div className='col-lg-4 col-md-12 p-4'>
-            <div class="input-group mb-3">
-              <div class="input-group-text">
+            <div className="input-group mb-3">
+              <div className="input-group-text">
                 <i className='bx bx-search-alt-2 display-7' ></i>
               </div>
               <input type="text" className='form-control' placeholder='Buscar propiedad' onChange={buscarPropiedad} />
