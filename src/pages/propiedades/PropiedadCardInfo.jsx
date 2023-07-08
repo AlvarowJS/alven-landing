@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 import './style.css'
 import logo from './../../assets/img/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faToilet, faBed, faKitchenSet, faWarehouse, faLayerGroup, faHouse, faSort, faSquareCheck, faMoneyBill, faDog, faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { faToilet, faBed, faKitchenSet, faWarehouse, faLayerGroup, faHouse, faSort, faSquareCheck, faMoneyBill, faDog, faLocationDot, faUser, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const URL = 'https://backend.alven-inmobiliaria.com.mx/api/v1/ver-propiedad'
@@ -90,6 +90,9 @@ const PropiedadCardInfo = () => {
                     <p><FontAwesomeIcon className='descripcion-icono' icon={faSort} />Número de elevadores: {propiedades?.basico?.numero_elevadores}</p>
                     <p><FontAwesomeIcon className='descripcion-icono' icon={faSquareCheck} />Piso Ubicado: {propiedades?.basico?.piso_ubicado}</p>
 
+                    <h4>Asesor Exclusivo</h4>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faUser} />Asesor: {propiedades?.cliente?.asesor?.nombre} {propiedades?.cliente?.asesor?.apellidos} </p>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faPhone} />Teléfono: {propiedades?.cliente?.asesor?.celular}</p>
                 </div>
                 {/* <div className='d-flex flex-column align-items-center flex-nowrap'> */}
                 <div className='col'>
