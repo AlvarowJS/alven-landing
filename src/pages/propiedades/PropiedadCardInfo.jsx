@@ -53,10 +53,10 @@ const PropiedadCardInfo = () => {
             <div className='row mx-5'>
                 {/* <div className='datos-propiedad'> */}
                 <div className='col'>
-                    <p><FontAwesomeIcon className='descripcion-icono' icon={faMoneyBill} />Precio: {propiedades?.publicidad?.precio_venta}</p>
-                    <p>
-                        {propiedades?.publicidad?.descripcion}
-                    </p>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faMoneyBill} />Precio: {propiedades?.publicidad?.precio_venta.toLocaleString() + '$'}</p>
+                    {propiedades?.publicidad?.descripcion.split('\n').map((linea, index) => (
+                        <p key={index}>{linea}</p>
+                    ))}
                     <p>
                         <h3> Con las siguientes caracteristicas </h3><br />
                         <FontAwesomeIcon className='descripcion-icono' icon={faDog} /> Mascotas: {propiedades?.caracteristica?.mascotas}
@@ -120,7 +120,7 @@ const PropiedadCardInfo = () => {
                     </div>
 
                     <h4>Ubicación</h4>
-              
+
                     {propiedades?.direccion?.LAT && propiedades?.direccion?.LON ? (
                         <LoadScript
                             googleMapsApiKey="AIzaSyCq_n_0fxE6-qDWeqeFZBfahzXrGDy0U_Q"

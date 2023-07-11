@@ -48,7 +48,7 @@ const Home = () => {
 
       <h2 className='text-center my-4' style={{ color: '#EE8178' }}>Datos Generales y Ubicación</h2>
       <aside className='text-center'>
-        <p>Teléfono: +52 1 55 2217 4030</p>
+        <p>Teléfono: +52 55 11 07 87 17</p>
         <p>Dirección: C. J. Enrique Pestalozzi 583 - CDMX, México </p>
       </aside>
       <aside className='iframe-container'>
