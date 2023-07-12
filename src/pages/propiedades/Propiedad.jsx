@@ -27,6 +27,7 @@ const Propiedad = () => {
     { value: "Baja California", label: "Baja California" },
     { value: "Baja California Sur", label: "Baja California Sur" },
     { value: "Campeche", label: "Campeche" },
+    { value: "Ciudad de México", label: "Ciudad de México" },
     { value: "Chiapas", label: "Chiapas" },
     { value: "Chihuahua", label: "Chihuahua" },
     { value: "Coahuila", label: "Coahuila" },
