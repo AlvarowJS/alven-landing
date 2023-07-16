@@ -3,7 +3,8 @@ import portada1 from './../../assets/img/portada1.png'
 import portada2 from './../../assets/img/portada2.png'
 import portada3 from './../../assets/img/portada3.png'
 import './style.css'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
 import Asesor from '../asesor/Asesor'
 import PropiedadAleatoria from '../propiedades/PropiedadAleatoria'
 import axios from 'axios'
@@ -43,6 +44,13 @@ const Home = () => {
             />
           ))
         }
+      </div>
+      <div className='d-flex justify-content-center my-4'>
+        <Link to='propiedades'>
+          <button className='btn btn-primary' style={{ backgroundColor: '#EE8178', borderColor: '#EE8178' }}>
+            VER TODO
+          </button>
+        </Link>
       </div>
       <Asesor />
 

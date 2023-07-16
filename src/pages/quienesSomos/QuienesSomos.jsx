@@ -18,7 +18,7 @@ const QuienesSomos = () => {
           SERVICIOS PROFESIONALES INMOBILIARIOS ALVEN , es una empresa mexicana la cual se crea para prestar un servicio profesional inmobiliario de calidad, brindando a cada uno de nuestros clientes el trato y la atención que esperan y merecen.
           <br />
           <br />
-          La empresa cubre una importante área geográfica ya que abarcamos el Distrito Federal y el área metropolitana contando con un grupo de asesores inmobiliarios calificados y la tecnología más avanzada de la industria.
+          La empresa cubre una importante área geográfica ya que abarcamos la Ciudad de México y el área metropolitana contando con un grupo de asesores inmobiliarios calificados y la tecnología más avanzada de la industria.
           <br />
           <br />
           Nuestro compromiso es con la calidad del servicio y la finalidad es tener clientes de por vida, en ningún momento extensión y amplitud significa menor calidad, por el contrario, nuestro compromiso es con la calidad del servicio.

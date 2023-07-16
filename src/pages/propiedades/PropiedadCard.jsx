@@ -21,7 +21,7 @@ const PropiedadCard = ({ propiedad }) => {
                 <img className="card-img-top custom-image" src={img} alt="Card image cap" />
                 <div className="card-body scrollable-card-body">
                     <h5 className="card-title">{propiedad?.publicidad?.encabezado}</h5>
-                    <p className="card-text"><FontAwesomeIcon className='descripcion-icono' icon={faMoneyBill} /> Precio: {propiedad?.publicidad?.precio_venta.toLocaleString() + '$'} </p>
+                    <p className="card-text"><FontAwesomeIcon className='descripcion-icono' icon={faMoneyBill} /> Precio: {'$ ' +propiedad?.publicidad?.precio_venta.toLocaleString()} </p>
                     
                     {propiedad?.publicidad?.descripcion.split('\n').map((linea, index) => (
                         <p className="card-text" key={index}>{linea}</p>
