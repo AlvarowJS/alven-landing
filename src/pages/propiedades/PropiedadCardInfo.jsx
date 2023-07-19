@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import './style.css'
-import logo from './../../assets/img/logo.png'
+import logo from './../../assets/img/logo2.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faToilet, faBed, faKitchenSet, faWarehouse, faLayerGroup, faHouse, faSort, faSquareCheck, faMoneyBill, faDog, faLocationDot, faUser, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
