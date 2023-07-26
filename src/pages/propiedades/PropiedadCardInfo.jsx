@@ -53,7 +53,7 @@ const PropiedadCardInfo = () => {
             <div className='row mx-5'>
                 {/* <div className='datos-propiedad'> */}
                 <div className='col'>
-                    <p><FontAwesomeIcon className='descripcion-icono' icon={faMoneyBill} />Precio: {'$ ' + propiedades?.publicidad?.precio_venta.toLocaleString() }</p>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faMoneyBill} />Precio: {'$ ' + propiedades?.publicidad?.precio_venta.toLocaleString()}</p>
                     {propiedades?.publicidad?.descripcion.split('\n').map((linea, index) => (
                         <p key={index}>{linea}</p>
                     ))}
@@ -78,7 +78,89 @@ const PropiedadCardInfo = () => {
 
 
                     <h4>Basicos: </h4>
-                    <p><FontAwesomeIcon className='descripcion-icono' icon={faSquareCheck} />Superficie del terreno: {propiedades?.basico?.superficie_terreno}</p>
+                    {propiedades?.basico?.superficie_terreno && (
+                        <p>
+                            <FontAwesomeIcon className='descripcion-icono' icon={faSquareCheck} />
+                            Superficie del terreno: {propiedades.basico.superficie_terreno}
+                        </p>
+                    )}
+
+                    {propiedades?.basico?.superficie_construccion && (
+                        <p>
+                            <FontAwesomeIcon className='descripcion-icono' icon={faSquareCheck} />
+                            Superfice de construcción: {propiedades.basico.superficie_construccion}
+                        </p>
+                    )}
+
+                    {propiedades?.basico?.banios && (
+                        <p>
+                            <FontAwesomeIcon className='descripcion-icono' icon={faToilet} />
+                            Baños: {propiedades.basico.banios}
+                        </p>
+                    )}
+
+                    {propiedades?.basico?.medios_banios && (
+                        <p>
+                            <FontAwesomeIcon className='descripcion-icono' icon={faToilet} />
+                            Medios Baños: {propiedades.basico.medios_banios}
+                        </p>
+                    )}
+
+                    {propiedades?.basico?.recamaras && (
+                        <p>
+                            <FontAwesomeIcon className='descripcion-icono' icon={faBed} />
+                            Recamaras: {propiedades.basico.recamaras}
+                        </p>
+                    )}
+
+                    {propiedades?.basico?.cocinas && (
+                        <p>
+                            <FontAwesomeIcon className='descripcion-icono' icon={faKitchenSet} />
+                            Cocinas: {propiedades.basico.cocinas}
+                        </p>
+                    )}
+
+                    {propiedades?.basico?.estacionamiento && (
+                        <p>
+                            <FontAwesomeIcon className='descripcion-icono' icon={faWarehouse} />
+                            Estacionamiento: {propiedades.basico.estacionamiento}
+                        </p>
+                    )}
+
+                    {propiedades?.basico?.niveles_construidos && (
+                        <p>
+                            <FontAwesomeIcon className='descripcion-icono' icon={faLayerGroup} />
+                            Niveles construidos: {propiedades.basico.niveles_construidos}
+                        </p>
+                    )}
+
+                    {propiedades?.basico?.numero_casas && (
+                        <p>
+                            <FontAwesomeIcon className='descripcion-icono' icon={faHouse} />
+                            Número de casas: {propiedades.basico.numero_casas}
+                        </p>
+                    )}
+
+                    {propiedades?.basico?.numero_elevadores && (
+                        <p>
+                            <FontAwesomeIcon className='descripcion-icono' icon={faSort} />
+                            Número de elevadores: {propiedades.basico.numero_elevadores}
+                        </p>
+                    )}
+
+                    {propiedades?.basico?.piso_ubicado && (
+                        <p>
+                            <FontAwesomeIcon className='descripcion-icono' icon={faSquareCheck} />
+                            Piso Ubicado: {propiedades.basico.piso_ubicado}
+                        </p>
+                    )}
+                    {propiedades?.basico?.edad && (
+                        <p>
+                            <FontAwesomeIcon className='descripcion-icono' icon={faSquareCheck} />
+                            Edad del Inmueble: {propiedades.basico.edad}
+                        </p>
+                    )}
+                    {/* <p><FontAwesomeIcon className='descripcion-icono' icon={faSquareCheck} />Superficie del terreno: {propiedades?.basico?.superficie_terreno}</p>
                     <p><FontAwesomeIcon className='descripcion-icono' icon={faSquareCheck} />Superfice de construcción: {propiedades?.basico?.superficie_construccion}</p>
                     <p><FontAwesomeIcon className='descripcion-icono' icon={faToilet} /> Baños: {propiedades?.basico?.banios}</p>
                     <p><FontAwesomeIcon className='descripcion-icono' icon={faToilet} /> Medios Baños: {propiedades?.basico?.medios_banios}</p>
@@ -88,7 +170,7 @@ const PropiedadCardInfo = () => {
                     <p><FontAwesomeIcon className='descripcion-icono' icon={faLayerGroup} />Niveles construidos: {propiedades?.basico?.niveles_construidos}</p>
                     <p><FontAwesomeIcon className='descripcion-icono' icon={faHouse} />Número de casas: {propiedades?.basico?.numero_casas}</p>
                     <p><FontAwesomeIcon className='descripcion-icono' icon={faSort} />Número de elevadores: {propiedades?.basico?.numero_elevadores}</p>
-                    <p><FontAwesomeIcon className='descripcion-icono' icon={faSquareCheck} />Piso Ubicado: {propiedades?.basico?.piso_ubicado}</p>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faSquareCheck} />Piso Ubicado: {propiedades?.basico?.piso_ubicado}</p> */}
 
                     <h4>Asesor Exclusivo</h4>
                     <p><FontAwesomeIcon className='descripcion-icono' icon={faUser} />Asesor: {propiedades?.cliente?.asesor?.nombre} {propiedades?.cliente?.asesor?.apellidos} </p>
