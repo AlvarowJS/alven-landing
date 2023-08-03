@@ -23,6 +23,7 @@ const PropiedadCardInfo = () => {
         axios.get(`${URL}/${id.id}`)
             .then(res => {
                 setPropiedades(res.data)
+
                 let espacios = res?.data?.caracteristica?.espacios
                 let jsonEspacios = JSON.parse(espacios)
                 setEspacios(jsonEspacios)
@@ -61,20 +62,40 @@ const PropiedadCardInfo = () => {
                         <h3> Con las siguientes caracteristicas </h3><br />
                         <FontAwesomeIcon className='descripcion-icono' icon={faDog} /> Mascotas: {propiedades?.caracteristica?.mascotas}
                     </p>
-                    <h4>Espacios: </h4>
-                    {espacios && espacios?.map((item, index) => (
-                        <p key={index}>- {item}</p>
-                    ))}
 
-                    <h4>Instalaciones: </h4>
-                    {instalaciones && instalaciones?.map((item, index) => (
-                        <p key={index}>- {item}</p>
-                    ))}
+                    {
+                        espacios == 'false' ? null : (
+                            <>
+                                <h4>Espacios: </h4>
+                                {espacios && espacios?.map((item, index) => (
+                                    <p key={index}>- {item}</p>
+                                ))}
+                            </>
+                        )
+                    }
 
-                    <h4>Restricciones: </h4>
-                    {resctricciones && resctricciones?.map((item, index) => (
-                        <p key={index}>- {item}</p>
-                    ))}
+                    {
+                        instalaciones == 'false' ? null : (
+                            <>
+                                <h4>Instalaciones: </h4>
+                                {instalaciones && instalaciones?.map((item, index) => (
+                                    <p key={index}>- {item}</p>
+                                ))}
+                            </>
+                        )
+                    }
+                    {
+                        resctricciones == 'false' ? null : (
+                            <>
+                                <h4>Restricciones: </h4>
+                                {resctricciones && resctricciones?.map((item, index) => (
+                                    <p key={index}>- {item}</p>
+                                ))}
+                            </>
+                        )
+
+                    }
+
 
 
                     <h4>Basicos: </h4>
