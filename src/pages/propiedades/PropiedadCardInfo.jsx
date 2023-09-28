@@ -224,7 +224,18 @@ const PropiedadCardInfo = () => {
 
                     <h4>Ubicación</h4>
 
-                    {propiedades?.direccion?.LAT && propiedades?.direccion?.LON ? (
+                    {
+                        propiedades?.direccion?.mapa ? (
+                            <div style={{
+                                textAlign: 'center',
+                                width: '100%',
+                                overflowX: 'auto'
+                            }}>
+                                <div dangerouslySetInnerHTML={{ __html: mapa }} />
+                            </div>
+                        ) : "Sin asignar"
+                    }
+                    {/* {propiedades?.direccion?.LAT && propiedades?.direccion?.LON ? (
                         <LoadScript
                             googleMapsApiKey="AIzaSyCq_n_0fxE6-qDWeqeFZBfahzXrGDy0U_Q"
                         >
@@ -241,7 +252,7 @@ const PropiedadCardInfo = () => {
                             </GoogleMap>
                         </LoadScript>
                     ) : "Sin asignar"
-                    }
+                    } */}
                 </div>
             </div>
         </>

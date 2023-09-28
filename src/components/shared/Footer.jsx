@@ -1,7 +1,10 @@
 import React from 'react'
 import './style/footer.css'
 import privacidad from './../../assets/pdf/Aviso de Privacidad.pdf'
-import carta from './../../assets/pdf/Carta de Derechos del Consumidor.pdf'
+import carta from './../../assets/pdf/Carta de Derechos al Consumidor.pdf'
+import cartaDisc from './../../assets/pdf/Carta de No Discriminacion.pdf'
+import registro from './../../assets/pdf/Registro de Contrato de Adhesion de Prestacion de Servicios.pdf'
+
 import logo from './../../assets/img/logo.png'
 const Footer = () => {
 
@@ -28,7 +31,12 @@ const Footer = () => {
       <div className='politicas'>
         <img src={logo} alt="logo" />
         <a href={carta} target="_blank" rel="noopener noreferrer">Derechos del cliente</a>
+        |
         <a href={privacidad} target="_blank" rel="noopener noreferrer">Aviso de privacidad</a>
+        |
+        <a href={cartaDisc} target="_blank" rel="noopener noreferrer">Politica de no Discriminación</a>
+        |
+        <a href={registro} target="_blank" rel="noopener noreferrer">Registro de contrato de Adhesion de Prestación de Servicios</a>
       </div>
     </footer>
   )
