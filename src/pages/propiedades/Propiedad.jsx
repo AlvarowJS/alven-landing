@@ -90,6 +90,7 @@ const Propiedad = () => {
 
   const buscarPropiedad = e => {
     setPropiedadSearch(e.target.value)
+    // console.log(e.target.value)
   }
 
   const pagesVisited = pageNumber * propiedadesPerPage
@@ -139,7 +140,7 @@ const Propiedad = () => {
 
   useEffect(() => {
     if (propiedads) {
-      setFilterPropiedad(propiedads?.filter(e => e?.publicidad?.encabezado.toLowerCase().indexOf(propiedadSearch?.toLowerCase()) !== -1))
+      setFilterPropiedad(propiedads?.filter(e => e?.publicidad?.encabezado?.toLowerCase().indexOf(propiedadSearch?.toLowerCase()) !== -1))
     }
 
   }, [propiedadSearch])

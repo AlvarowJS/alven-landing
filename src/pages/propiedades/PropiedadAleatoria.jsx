@@ -9,7 +9,7 @@ const PropiedadAleatoria = ({ propiedad }) => {
     }
     return (
 
-        <div className="card" style={{ width: '20rem',cursor: 'pointer' }} onClick={() => verPropiedad(propiedad?.id)}>
+        <div className="card" style={{ width: '20rem', cursor: 'pointer' }} onClick={() => verPropiedad(propiedad?.id)}>
             <img
                 className="card-img-top"
                 style={{ width: '100%', height: '200px', objectFit: 'cover' }}
@@ -19,7 +19,18 @@ const PropiedadAleatoria = ({ propiedad }) => {
 
             <div className="card-body">
                 <h5 className="card-title">{propiedad?.publicidad?.encabezado}</h5>
-                <p className='card-text'><FontAwesomeIcon className='descripcion-icono' icon={faMoneyBill} />Precio:  {'$ '+propiedad?.publicidad?.precio_venta.toLocaleString()}</p>
+                <p className='card-text'><FontAwesomeIcon className='descripcion-icono' icon={faMoneyBill} />
+                    {
+                        propiedad?.publicidad?.precio_venta ?
+                            (
+                                <>
+                                    Precio:  {'$ ' + propiedad?.publicidad?.precio_venta}
+                                </>
+                            ) : 'Sin definir'
+                    }
+
+
+                </p>
             </div>
         </div>
 
