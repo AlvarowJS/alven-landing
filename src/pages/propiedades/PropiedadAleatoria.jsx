@@ -24,7 +24,7 @@ const PropiedadAleatoria = ({ propiedad }) => {
                         propiedad?.publicidad?.precio_venta ?
                             (
                                 <>
-                                    Precio:  {'$ ' + propiedad?.publicidad?.precio_venta}
+                                    Precio:  {'$ ' + Number(propiedad?.publicidad?.precio_venta).toLocaleString()}
                                 </>
                             ) : 'Sin definir'
                     }
