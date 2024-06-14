@@ -233,7 +233,19 @@ const PropiedadCardInfo = () => {
                             }}>
                                 <div dangerouslySetInnerHTML={{ __html: mapa }} />
                             </div>
-                        ) : "Sin asignar"
+                        ) : 
+                        propiedades?.publicidad?.mapa ? (
+                            <div style={{
+                                textAlign: 'center',
+                                width: '100%',
+                                overflowX: 'auto'
+                            }}>
+                                <img 
+                                src={`https://backend.alven-inmobiliaria.com.mx/storage/${propiedades?.id}/mapa/${propiedades?.publicidad?.mapa}`} 
+                                alt="" />
+                            </div>
+                        ) :
+                        "Sin asignar"
                     }
                     {/* {propiedades?.direccion?.LAT && propiedades?.direccion?.LON ? (
                         <LoadScript
