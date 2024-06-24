@@ -54,7 +54,7 @@ const PropiedadCardInfo = () => {
             <div className='row mx-5'>
                 {/* <div className='datos-propiedad'> */}
                 <div className='col'>
-                    <p><FontAwesomeIcon className='descripcion-icono' icon={faMoneyBill} />Precio: {'$ ' + propiedades?.publicidad?.precio_venta}</p>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faMoneyBill} />Precio: {'$ ' + Number(propiedades?.publicidad?.precio_venta).toLocaleString() }</p>
                     {propiedades?.publicidad?.descripcion.split('\n').map((linea, index) => (
                         <p key={index}>{linea}</p>
                     ))}
