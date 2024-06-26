@@ -18,7 +18,7 @@ const Propiedad = () => {
     { value: "todos", label: "Todos" },
     { value: "venta", label: "Venta" },
     { value: "renta", label: "Renta" },
-    
+
   ]
 
   const options = [
@@ -93,40 +93,27 @@ const Propiedad = () => {
     // console.log(e.target.value)
   }
 
-  const pagesVisited = pageNumber * propiedadesPerPage
-  const displayPropiedades = filterPropiedad
-    ? filterPropiedad.map((propiedad) =>
-      // propiedad.estado ? 
-      (
-        <PropiedadCard key={propiedad?.id} propiedad={propiedad} />
-      ) 
-      // : null
-    )
-    : propiedads
-      ?.slice(pagesVisited, pagesVisited + propiedadesPerPage)
-      .map((propiedad) =>
-        // propiedad.estado ? 
-        (
-          <PropiedadCard key={propiedad?.id} propiedad={propiedad} />
-        ) 
-        // : null
-      );
-  // const displayPropiedades = propiedads
-  //   ?.slice(pagesVisited, pagesVisited + propiedadesPerPage)
-  //   .map(propiedad => (
-  //     propiedad.estado ?
-  //       <PropiedadCard
-  //         key={propiedad?.id}
-  //         propiedad={propiedad}
-  //       />
-  //       : null
-  //   ))
-
-  const pageCount = Math.ceil(propiedads?.length / propiedadesPerPage)
-
-  const changePage = ({ selected }) => {
-    setPageNumber(selected)
-  }
+  // const displayPropiedades = filterPropiedad
+  //   ? filterPropiedad.map((propiedad) =>
+  //   (
+  //     <PropiedadCard key={propiedad?.id} propiedad={propiedad} />
+  //   )
+  //   )
+  //   : propiedads
+  //     ?.slice(pagesVisited, pagesVisited + propiedadesPerPage)
+  //     .map((propiedad) =>
+  //     (
+  //       <PropiedadCard key={propiedad?.id} propiedad={propiedad} />
+  //     )
+  //     );
+  const displayPropiedades = propiedads?.map(propiedad => (
+    propiedad.estado ?
+      <PropiedadCard
+        key={propiedad?.id}
+        propiedad={propiedad}
+      />
+      : null
+  ))
 
   const buscarPorPrecio = () => {
     if (propiedads) {
@@ -158,8 +145,8 @@ const Propiedad = () => {
     <>
       <h2 className='contacto_h2'>Propiedades</h2>
       <div className="container">
-        <div className='row px-4 mx-5'>
-          <div className='col-lg-4 col-md-12 p-4'>
+        <div className='row '>
+          <div className='col-lg-3 col-md-12 p-4'>
             <div className="input-group mb-3">
               <div className="input-group-text">
                 <i className='bx bx-search-alt-2 display-7' ></i>
@@ -197,34 +184,33 @@ const Propiedad = () => {
             <button className='btn btn-primary my-2' onClick={buscarPorPrecio}>Filtrar por precios</button>
             {/* <button className='btn btn-primary my-2' onClick={buscarPorPrecio}>Filtrar por precios</button> */}
           </div>
-          <div className='col-lg-8 d-flex flex-wrap gap-4'>
+          <div className='col-lg-9 d-flex flex-wrap gap-4 justify-content-center'>
             {
-              displayPropiedades
-              // filterPropiedad ?
-              //   filterPropiedad?.map(propiedad => (
-              //     propiedad.estado ?
-              //       <PropiedadCard
-              //         key={propiedad?.id}
-              //         propiedad={propiedad}
-              //       />
-              //       : null
-              //   ))
-              //   :
-              //   propiedads?.map(propiedad => (
-              //     propiedad.estado ?
-              //       <PropiedadCard
-              //         key={propiedad?.id}
-              //         propiedad={propiedad}
-              //       />
-              //       : null
-              //   ))
+              // displayPropiedades
+              filterPropiedad ?
+                filterPropiedad?.map(propiedad => (
+                  propiedad.estado ?
+                    <PropiedadCard
+                      key={propiedad?.id}
+                      propiedad={propiedad}
+                    />
+                    : null
+                ))
+                :
+                propiedads?.map(propiedad => (
+                  propiedad.estado ?
+                    <PropiedadCard
+                      key={propiedad?.id}
+                      propiedad={propiedad}
+                    />
+                    : null
+                ))
             }
 
 
           </div>
-
-          <div className='col-lg-4 col-md-12 p-4'></div>
-          <div className='col-lg-8'>
+          
+          {/* <div className='col-lg-8'>
             <ReactPaginate
               previousLabel={"Anterior"}
               nextLabel={"Siguiente"}
@@ -236,7 +222,7 @@ const Propiedad = () => {
               disabledClassName={"paginationDisabled"}
               activeClassName={"paginationActive"}
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </>

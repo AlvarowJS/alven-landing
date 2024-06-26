@@ -6,7 +6,9 @@ import logo from './../../assets/img/logo2.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faToilet, faBed, faKitchenSet, faWarehouse, faLayerGroup, faHouse, faSort, faSquareCheck, faMoneyBill, faDog, faLocationDot, faUser, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // Importa los estilos del carrusel
+import { Carousel } from 'react-responsive-carousel';
+import Modal from 'react-modal';
 const URL = 'https://backend.alven-inmobiliaria.com.mx/api/v1/ver-propiedad'
 const PropiedadCardInfo = () => {
     const containerStyle = {
@@ -18,6 +20,17 @@ const PropiedadCardInfo = () => {
     const [espacios, setEspacios] = useState()
     const [instalaciones, setInstalaciones] = useState()
     const [resctricciones, setResctricciones] = useState()
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedIndex, setSelectedIndex] = useState(0);
+
+    const openModal = (index) => {
+        setSelectedIndex(index);
+        setIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsOpen(false);
+    };
 
     useEffect(() => {
         axios.get(`${URL}/${id.id}`)
@@ -53,8 +66,8 @@ const PropiedadCardInfo = () => {
             {/* <div className='d-flex flex-wrap justify-content-around mx-5'> */}
             <div className='row mx-5'>
                 {/* <div className='datos-propiedad'> */}
-                <div className='col'>
-                    <p><FontAwesomeIcon className='descripcion-icono' icon={faMoneyBill} />Precio: {'$ ' + Number(propiedades?.publicidad?.precio_venta).toLocaleString() }</p>
+                <div className='col-12 col-md-6 order-2 order-md-1'>
+                    <p><FontAwesomeIcon className='descripcion-icono' icon={faMoneyBill} />Precio: {'$ ' + Number(propiedades?.publicidad?.precio_venta).toLocaleString()}</p>
                     {propiedades?.publicidad?.descripcion.split('\n').map((linea, index) => (
                         <p key={index}>{linea}</p>
                     ))}
@@ -198,14 +211,14 @@ const PropiedadCardInfo = () => {
                     <p><FontAwesomeIcon className='descripcion-icono' icon={faPhone} />Teléfono: {propiedades?.cliente?.asesor?.celular}</p>
                 </div>
                 {/* <div className='d-flex flex-column align-items-center flex-nowrap'> */}
-                <div className='col'>
+                <div className='col-12 col-md-6 order-1 order-md-2'>
                     <p> <FontAwesomeIcon icon={faLocationDot} className='descripcion-icono' />
                         {propiedades?.direccion?.calle} - {propiedades?.direccion?.numero} - {propiedades?.direccion?.municipio} - {propiedades?.direccion?.estado}
                     </p>
-                    <img src={`https://backend.alven-inmobiliaria.com.mx/storage/${propiedades?.id}/${propiedades?.foto[0]?.fotos}`} style={{ width: '500px' }} alt="" />
+                    <img src={`https://backend.alven-inmobiliaria.com.mx/storage/${propiedades?.id}/${propiedades?.foto[0]?.fotos}`} style={{ width: '100%' }} alt="" />
 
                     <h4>Galeria de fotos</h4>
-                    <div className='d-flex justify-content-center flex-wrap gap-4 ' style={{ width: '100%' }}>
+                    {/* <div className='d-flex justify-content-center flex-wrap gap-4 ' style={{ width: '100%' }}>
                         {propiedades?.foto?.map((foto, index) => (
                             <img
                                 key={index}
@@ -220,8 +233,25 @@ const PropiedadCardInfo = () => {
                                 alt=""
                             />
                         ))}
+                    </div> */}
+                    <div className='d-flex justify-content-center' style={{ width: '100%' }}>
+                        <Carousel showThumbs={false} infiniteLoop useKeyboardArrows autoPlay>
+                            {propiedades?.foto?.map((foto, index) => (
+                                <div key={index} onClick={() => openModal(index)}>
+                                    <img
+                                        src={`https://backend.alven-inmobiliaria.com.mx/storage/${propiedades?.id}/${foto?.fotos}`}
+                                        style={{
+                                            objectFit: 'cover',
+                                            width: '100%',
+                                            height: '500px',
+                                            boxShadow: '0 0 5px rgba(0, 0, 0, 1)'
+                                        }}
+                                        alt=""
+                                    />
+                                </div>
+                            ))}
+                        </Carousel>
                     </div>
-
                     <h4>Ubicación</h4>
 
                     {
@@ -233,19 +263,19 @@ const PropiedadCardInfo = () => {
                             }}>
                                 <div dangerouslySetInnerHTML={{ __html: mapa }} />
                             </div>
-                        ) : 
-                        propiedades?.publicidad?.mapa ? (
-                            <div style={{
-                                textAlign: 'center',
-                                width: '100%',
-                                overflowX: 'auto'
-                            }}>
-                                <img 
-                                src={`https://backend.alven-inmobiliaria.com.mx/storage/${propiedades?.id}/mapa/${propiedades?.publicidad?.mapa}`} 
-                                alt="" />
-                            </div>
                         ) :
-                        "Sin asignar"
+                            propiedades?.publicidad?.mapa ? (
+                                <div style={{
+                                    textAlign: 'center',
+                                    width: '100%',
+                                    overflowX: 'auto'
+                                }}>
+                                    <img
+                                        src={`https://backend.alven-inmobiliaria.com.mx/storage/${propiedades?.id}/mapa/${propiedades?.publicidad?.mapa}`}
+                                        alt="" />
+                                </div>
+                            ) :
+                                "Sin asignar"
                     }
                     {/* {propiedades?.direccion?.LAT && propiedades?.direccion?.LON ? (
                         <LoadScript
@@ -267,6 +297,45 @@ const PropiedadCardInfo = () => {
                     } */}
                 </div>
             </div>
+            <Modal
+                isOpen={isOpen}
+                onRequestClose={closeModal}
+                contentLabel="Imagen en Popup"
+                style={{
+                    content: {
+                        // zIndex: 100,
+                        top: '50%',
+                        left: '50%',
+                        right: 'auto',
+                        bottom: 'auto',
+                        marginRight: '-50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: '80%',
+                        height: '500px',
+                    },
+                    overlay: {
+                        zIndex: '9999' // Asegúrate de que la superposición tenga un z-index alto
+                    }
+                }}
+            >
+                <button className='btn btn-warning' onClick={closeModal} style={{ position: 'absolute', top: '10px', left: '10px' }}>x</button>
+                <Carousel selectedItem={selectedIndex} showThumbs={false} infiniteLoop useKeyboardArrows autoPlay>
+                    {propiedades?.foto?.map((foto, index) => (
+                        <div key={index}>
+                            <img
+                                src={`https://backend.alven-inmobiliaria.com.mx/storage/${propiedades?.id}/${foto?.fotos}`}
+                                style={{
+                                    // objectFit: 'cover',
+                                    marginTop: 50,
+                                    width: '100%',
+                                    height: '400px',
+                                }}
+                                alt=""
+                            />
+                        </div>
+                    ))}
+                </Carousel>
+            </Modal>
         </>
     )
 }

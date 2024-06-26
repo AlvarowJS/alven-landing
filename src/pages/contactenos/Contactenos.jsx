@@ -46,21 +46,21 @@ const Contactenos = () => {
             <div className="row mb-4">
               <div className="col-md">
                 <label htmlFor="nombre" className="form-label text-light">Nombre</label>
-                <input type="text" className="form-control" id="nombre" placeholder="Juan"  {...register('nombre')} />
+                <input type="text" className="form-control" id="nombre" placeholder="Ingrese su nombre"  {...register('nombre')} />
               </div>
               <div className="col-md">
                 <label htmlFor="apellido" className="form-label text-light">Apellido</label>
-                <input type="text" className="form-control" id="apellido" placeholder="Perez" {...register('apellido')} />
+                <input type="text" className="form-control" id="apellido" placeholder="Ingrese su apellido" {...register('apellido')} />
               </div>
             </div>
             <div className="row mb-4">
               <div className="col-md">
                 <label htmlFor="celular" className="form-label text-light">Teléfono</label>
-                <input type="text" className="form-control" id="celular" placeholder="55 3434 3434" {...register('telefono')} />
+                <input type="text" className="form-control" id="celular" placeholder="Ingrese su número de telefono" {...register('telefono')} />
               </div>
               <div className="col-md">
                 <label htmlFor="email" className="form-label text-light">Correo</label>
-                <input type="email" className="form-control" id="email" placeholder="name@example.com" {...register('email')} />
+                <input type="email" className="form-control" id="email" placeholder="Ingrese su correo electrónico" {...register('email')} />
               </div>
             </div>
             <div className="row mb-4">
