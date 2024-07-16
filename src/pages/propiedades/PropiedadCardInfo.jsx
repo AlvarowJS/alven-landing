@@ -310,25 +310,34 @@ const PropiedadCardInfo = () => {
                         bottom: 'auto',
                         marginRight: '-50%',
                         transform: 'translate(-50%, -50%)',
-                        width: '80%',
-                        height: '500px',
+                        width: '1300px',
+                        height: '800px',
+                        overflow: 'hidden', // Oculta el overflow para evitar scrollbars
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        // backgroundColor: 'gray'
+                        
                     },
                     overlay: {
                         zIndex: '9999' // Asegúrate de que la superposición tenga un z-index alto
                     }
                 }}
             >
-                <button className='btn btn-warning' onClick={closeModal} style={{ position: 'absolute', top: '10px', left: '10px' }}>x</button>
-                <Carousel selectedItem={selectedIndex} showThumbs={false} infiniteLoop useKeyboardArrows autoPlay>
+                <button className='btn btn-warning' onClick={closeModal} style={{ position: 'absolute', top: '10px', left: '10px', zIndex: '99999' }}>x</button>
+                <Carousel selectedItem={selectedIndex} showThumbs={false} infiniteLoop useKeyboardArrows autoPlay style={{ width: '100%', height: '100%' }} >
                     {propiedades?.foto?.map((foto, index) => (
-                        <div key={index}>
+                        <div key={index}
+                            style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%'}}
+                        >
+
                             <img
                                 src={`https://backend.alven-inmobiliaria.com.mx/storage/${propiedades?.id}/${foto?.fotos}`}
                                 style={{
-                                    // objectFit: 'cover',
+                                    objectFit: 'contain',
                                     marginTop: 50,
-                                    width: '100%',
-                                    height: '400px',
+                                    maxWidth: '100%',
+                                    maxHeight: '600px',
                                 }}
                                 alt=""
                             />
