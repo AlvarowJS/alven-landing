@@ -8,10 +8,7 @@ const Header = () => {
   const modoAdmin = () => {
     window.open('http://admin.alven-inmobiliaria.com.mx')
   }
-
-  const modoDocumentos = () => {
-    window.open('http://docs.alven-inmobiliaria.com.mx/')
-  }
+  
   
   return (
     <>
@@ -78,14 +75,7 @@ const Header = () => {
                 Ingresar
               </span>
 
-            </div>
-            <div className="navbar align-self-center gap-3 d-flex mx-2" onClick={modoDocumentos}>
-              <span className="links_local">
-                <i className='bx bx-folder'></i>
-                Documentos
-              </span>
-
-            </div>
+            </div>          
           </div>
 
         </div>
