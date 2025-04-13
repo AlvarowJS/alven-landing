@@ -24,6 +24,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.11.2",
     "react-select": "^5.7.3",
+    "react-youtube": "^10.1.0",
     "sweetalert2": "^11.7.11",
     "sweetalert2-react-content": "^5.0.7"
   },

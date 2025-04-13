@@ -69,7 +69,6 @@ const Propiedad = () => {
     }
   }
   const seleccionarEstado = (selectedOption) => {
-    console.log(selectedOption?.value)
     let opcionEstado = selectedOption?.value
 
     if (propiedads) {

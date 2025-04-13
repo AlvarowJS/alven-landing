@@ -9,6 +9,7 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Importa los estilos del carrusel
 import { Carousel } from 'react-responsive-carousel';
 import Modal from 'react-modal';
+import YouTube from 'react-youtube';
 const URL = 'https://backend.alven-inmobiliaria.com.mx/api/v1/ver-propiedad'
 const PropiedadCardInfo = () => {
     const containerStyle = {
@@ -22,6 +23,7 @@ const PropiedadCardInfo = () => {
     const [resctricciones, setResctricciones] = useState()
     const [isOpen, setIsOpen] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState(0);
+    const [videoLink, setVideoLink] = useState()
 
     const openModal = (index) => {
         setSelectedIndex(index);
@@ -49,6 +51,10 @@ const PropiedadCardInfo = () => {
                 let jsonRestricciones = JSON.parse(restricciones)
                 setResctricciones(jsonRestricciones)
 
+                let video = res?.data?.publicidad?.video_url
+                let videoId = video ?? video.split('v=')[1]
+                setVideoLink(videoId)
+
             })
             .catch(err => console.log(err))
     }, [])
@@ -73,7 +79,11 @@ const PropiedadCardInfo = () => {
                     ))}
                     <p>
                         <h3> Con las siguientes caracteristicas </h3><br />
-                        <FontAwesomeIcon className='descripcion-icono' icon={faDog} /> Mascotas: {propiedades?.caracteristica?.mascotas}
+                        {
+                            propiedades?.caracteristica?.mascotas ?
+                                <p><FontAwesomeIcon className='descripcion-icono' icon={faDog} /> Mascotas: {propiedades?.caracteristica?.mascotas}</p>
+                                : null
+                        }
                     </p>
 
                     {
@@ -112,83 +122,83 @@ const PropiedadCardInfo = () => {
 
 
                     <h4>Basicos: </h4>
-                    {propiedades?.basico?.superficie_terreno && (
+                    {propiedades?.basico?.superficie_terreno > 0 > 0 && (
                         <p>
                             <FontAwesomeIcon className='descripcion-icono' icon={faSquareCheck} />
                             Superficie del terreno: {propiedades.basico.superficie_terreno}
                         </p>
                     )}
 
-                    {propiedades?.basico?.superficie_construccion && (
+                    {propiedades?.basico?.superficie_construccion > 0 && (
                         <p>
                             <FontAwesomeIcon className='descripcion-icono' icon={faSquareCheck} />
                             Superfice de construcción: {propiedades.basico.superficie_construccion}
                         </p>
                     )}
 
-                    {propiedades?.basico?.banios && (
+                    {propiedades?.basico?.banios > 0 && (
                         <p>
                             <FontAwesomeIcon className='descripcion-icono' icon={faToilet} />
                             Baños: {propiedades.basico.banios}
                         </p>
                     )}
 
-                    {propiedades?.basico?.medios_banios && (
+                    {propiedades?.basico?.medios_banios > 0 && (
                         <p>
                             <FontAwesomeIcon className='descripcion-icono' icon={faToilet} />
                             Medios Baños: {propiedades.basico.medios_banios}
                         </p>
                     )}
 
-                    {propiedades?.basico?.recamaras && (
+                    {propiedades?.basico?.recamaras > 0 && (
                         <p>
                             <FontAwesomeIcon className='descripcion-icono' icon={faBed} />
                             Recamaras: {propiedades.basico.recamaras}
                         </p>
                     )}
 
-                    {propiedades?.basico?.cocinas && (
+                    {propiedades?.basico?.cocinas > 0 && (
                         <p>
                             <FontAwesomeIcon className='descripcion-icono' icon={faKitchenSet} />
                             Cocinas: {propiedades.basico.cocinas}
                         </p>
                     )}
 
-                    {propiedades?.basico?.estacionamiento && (
+                    {propiedades?.basico?.estacionamiento > 0 && (
                         <p>
                             <FontAwesomeIcon className='descripcion-icono' icon={faWarehouse} />
                             Estacionamiento: {propiedades.basico.estacionamiento}
                         </p>
                     )}
 
-                    {propiedades?.basico?.niveles_construidos && (
+                    {propiedades?.basico?.niveles_construidos > 0 && (
                         <p>
                             <FontAwesomeIcon className='descripcion-icono' icon={faLayerGroup} />
                             Niveles construidos: {propiedades.basico.niveles_construidos}
                         </p>
                     )}
 
-                    {propiedades?.basico?.numero_casas && (
+                    {propiedades?.basico?.numero_casas > 0 && (
                         <p>
                             <FontAwesomeIcon className='descripcion-icono' icon={faHouse} />
                             Número de casas: {propiedades.basico.numero_casas}
                         </p>
                     )}
 
-                    {propiedades?.basico?.numero_elevadores && (
+                    {propiedades?.basico?.numero_elevadores > 0 && (
                         <p>
                             <FontAwesomeIcon className='descripcion-icono' icon={faSort} />
                             Número de elevadores: {propiedades.basico.numero_elevadores}
                         </p>
                     )}
 
-                    {propiedades?.basico?.piso_ubicado && (
+                    {propiedades?.basico?.piso_ubicado > 0 && (
                         <p>
                             <FontAwesomeIcon className='descripcion-icono' icon={faSquareCheck} />
                             Piso Ubicado: {propiedades.basico.piso_ubicado}
                         </p>
                     )}
-                    {propiedades?.basico?.edad && (
+                    {propiedades?.basico?.edad > 0 && (
                         <p>
                             <FontAwesomeIcon className='descripcion-icono' icon={faSquareCheck} />
                             Edad del Inmueble: {propiedades.basico.edad}
@@ -277,6 +287,22 @@ const PropiedadCardInfo = () => {
                             ) :
                                 "Sin asignar"
                     }
+
+                    {
+                        videoLink == null ? (
+                            <>
+                                <h4>Video: </h4>
+                                <YouTube
+                                    videoId={videoLink}
+                                    opts={{
+                                        width: '100%',
+                                        height: '500px',
+                                    }}
+                                />
+                            </>
+                        ) : null
+                    }
+
                     {/* {propiedades?.direccion?.LAT && propiedades?.direccion?.LON ? (
                         <LoadScript
                             googleMapsApiKey="AIzaSyCq_n_0fxE6-qDWeqeFZBfahzXrGDy0U_Q"
@@ -317,7 +343,7 @@ const PropiedadCardInfo = () => {
                         justifyContent: 'center',
                         alignItems: 'center',
                         // backgroundColor: 'gray'
-                        
+
                     },
                     overlay: {
                         zIndex: '9999' // Asegúrate de que la superposición tenga un z-index alto
@@ -328,7 +354,7 @@ const PropiedadCardInfo = () => {
                 <Carousel selectedItem={selectedIndex} showThumbs={false} infiniteLoop useKeyboardArrows autoPlay style={{ width: '100%', height: '100%' }} >
                     {propiedades?.foto?.map((foto, index) => (
                         <div key={index}
-                            style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%'}}
+                            style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}
                         >
 
                             <img
