@@ -45,8 +45,15 @@ const PropiedadCard = ({ propiedad }) => {
                     }
 
                     <p className="card-text"><FontAwesomeIcon className='descripcion-icono' icon={faLocationDot} />Dirección: {propiedad?.direccion?.estado} - {propiedad?.direccion?.municipio} - {propiedad?.direccion?.colonia} - {propiedad?.direccion?.calle} </p>
-                    <p className="card-text">Tipo de propiedad: {propiedad?.general?.tipo_operacion} </p>
-                    <a href={propiedad?.publicidad?.video_url} className="card-text" target='_blank'> <FontAwesomeIcon className='descripcion-icono' icon={faYoutube} />Video en Youtube</a>
+                    <p className="card-text">Tipo de propiedad: {propiedad?.general?.tipo_operacion} </p>                    
+                    {
+                        propiedad?.publicidad?.video_url == null ?
+                            (
+                                <>
+                                    <a href={propiedad?.publicidad?.video_url} className="card-text" target='_blank'> <FontAwesomeIcon className='descripcion-icono' icon={faYoutube} />Video en Youtube</a>
+                                </>
+                            ) : ''
+                    }
                 </div>
             </div>
 

@@ -52,7 +52,7 @@ const PropiedadCardInfo = () => {
                 setResctricciones(jsonRestricciones)
 
                 let video = res?.data?.publicidad?.video_url
-                let videoId = video ?? video.split('v=')[1]
+                let videoId = video.split('v=')[1]
                 setVideoLink(videoId)
 
             })
@@ -262,6 +262,20 @@ const PropiedadCardInfo = () => {
                             ))}
                         </Carousel>
                     </div>
+                    {
+                        videoLink == null ? null : (
+                            <>
+                                <h4>Video: </h4>
+                                <YouTube
+                                    videoId={videoLink}
+                                    opts={{
+                                        width: '100%',
+                                        height: '500px',
+                                    }}
+                                />
+                            </>
+                        )
+                    }
                     <h4>Ubicación</h4>
 
                     {
@@ -288,20 +302,7 @@ const PropiedadCardInfo = () => {
                                 "Sin asignar"
                     }
 
-                    {
-                        videoLink == null ? (
-                            <>
-                                <h4>Video: </h4>
-                                <YouTube
-                                    videoId={videoLink}
-                                    opts={{
-                                        width: '100%',
-                                        height: '500px',
-                                    }}
-                                />
-                            </>
-                        ) : null
-                    }
+
 
                     {/* {propiedades?.direccion?.LAT && propiedades?.direccion?.LON ? (
                         <LoadScript
